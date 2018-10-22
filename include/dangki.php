@@ -36,10 +36,12 @@
                 exit();
             }
         }else{
-            $_SESSION['message-register'] = MessageNoti::$msgRegisterSuccessfully;
+            $_SESSION['message-register'] = MessageNoti::$msgRegisterFailed;
             header("Location: /dangki", 301);
             exit();
         }
     }
+    $_SESSION['message-register'] = MessageNoti::$msgRegisterSuccessfully;
+    header("Location: /", 301);
     exit();
 ?>

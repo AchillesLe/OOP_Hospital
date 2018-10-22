@@ -69,7 +69,7 @@ class dangnhapModel
                                         quyen,
                                         tinhTrang) 
                 VALUES ('{$this->Email}',
-                        '{$this->matKhau}',
+                        '{$matkhau}',
                         '{$this->quyen}',
                         '{$this->tinhTrang}')";
         $data = mysqli_query($conn, $sql);
