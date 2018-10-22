@@ -14,7 +14,7 @@ class dangnhapModel
             case 0:
                 self::__construct1( );
                 break;
-            case 8:
+            case 5:
                 self::__construct2( $argv[0], $argv[1], $argv[2], $argv[3], $argv[4] );
                 break;
          }
@@ -69,7 +69,7 @@ class dangnhapModel
                                         quyen,
                                         tinhTrang) 
                 VALUES ('{$this->Email}',
-                        '{$matkhau}',
+                        '{$this->matKhau}',
                         '{$this->quyen}',
                         '{$this->tinhTrang}')";
         $data = mysqli_query($conn, $sql);
