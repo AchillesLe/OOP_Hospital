@@ -1,0 +1,277 @@
+option:hover{
+    cursor: pointer;
+}
+
+label.label-danger{
+    padding-left: 3px;
+    padding-right: 3px;
+    background: rgb(191, 58, 43);
+    margin-top: 3px;
+    border-radius: 3px;
+}
+.dklichkham > .card-body{
+    width: 70%;
+    margin: auto;
+    padding-top:70px;
+    padding-bottom:100px;    
+}
+.group-cbx-sex{
+    border:1px solid #ced4da;
+    padding-bottom: 7px;
+    padding-left: 40px;
+    border-radius: 4px;
+}
+.group-cbx-sex label{
+    margin-bottom: 5px;
+}
+.chosen-results{
+ height: 200px;
+}
+.chosen-container-single .chosen-single{
+    height: 38px;
+    background: #fff;
+}
+.chosen-container-single .chosen-single span{
+    margin-top: 6px;
+    font-size: 1rem;
+}
+.chosen-container-active{
+    background: #fff;
+}
+li.active-result{
+    font-size: 1rem;
+}
+select[name=table-benh-an-benhnhan_length]{
+    border-radius: 5px;
+}
+select[name=table-benh-an-bacsi_length]{
+    border-radius: 5px;
+}
+input[type=search]{
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid #ced4da;
+}
+.paginate_button.current{
+    background: #7cb7f3!important;
+    border: 0.5px solid #7cb7f3!important;
+}
+#table-benh-an-bacsi thead tr th:nth-child(6){
+    width: 9%!important;
+}
+#table-benh-an-bacsi thead tr th:nth-child(7){
+    width: 7%!important;
+}
+#table-benh-an-benhnhan thead tr th:nth-child(1){
+    width:5%;
+}
+#table-benh-an-benhnhan thead tr th:nth-child(2){
+    width:7%;
+}
+#table-benh-an-benhnhan thead tr th:nth-child(3){
+    width:22%;
+}
+#table-benh-an-benhnhan thead tr th:last-child{
+    width:17%;
+}
+.bg-info{
+    background: #17a2b8;
+}
+.bg-warning{
+    background: #ffc107;
+}
+.bg-dark{
+    background: #343a40;    
+}
+.bg-secondary {
+    background-color: #e2e3e5;
+}
+.form-row label{
+    margin-bottom: unset;
+    margin-top: 12px;
+}
+/* .form-control[read-only]{
+    background: #eeeded!important;
+} */
+.hr_tag_warning{
+    border: 1px solid #ffc107;
+}
+.hr_tag_dark{
+    border: 1px solid #343a40;
+}
+
+#table_xet_nghiem thead tr th:nth-child(1){
+    width:30%;
+}
+#table_xet_nghiem thead tr th:nth-child(2){
+    width:7%;
+}
+#table_xet_nghiem thead tr th:nth-child(3){
+    width:8%;
+}
+#table_xet_nghiem thead tr th:last-child{
+    width:8%;
+}
+#table_thuoc{
+    width: 80%;
+    margin: auto;
+}
+#table_thuoc thead tr th:nth-child(1){
+    width:50%;
+}
+#table_thuoc thead tr th:nth-child(2){
+    width:20%;
+}
+#table_thuoc thead tr th:nth-child(3){
+    width:15%;
+}#table_thuoc thead tr th:last-child{
+    width:15%;
+}
+.row-end{
+    margin:30px;
+}
+.card-ds-lich-kham{
+    margin-top: 50px;
+}
+[name*=_length]{
+    border-radius: 5px!important;
+}
+
+[id*="table-ds-lich-kham-"] thead tr th:nth-child(1){
+    width:5%!important;
+}
+[id*="table-ds-lich-kham-"] thead tr th:nth-child(2){
+    width:12%!important;
+}
+[id*="table-ds-lich-kham-"] thead tr th:nth-child(3){
+    width:10%!important;
+}
+[id*="table-ds-lich-kham-"] thead tr th:nth-child(4){
+    width:10%!important;
+}
+[id*="table-ds-lich-kham-"] thead tr th:nth-child(5){
+    widows: 22% !important;
+}
+[id*="table-ds-lich-kham-"] thead tr th:nth-child(6){
+    width:12%!important;
+}
+[id*="table-ds-lich-kham-"] thead tr th:last-child{
+    width:7%!important;
+}
+[id*="table-ds-lich-hen-"] thead tr th:nth-child(1){
+    width:5%!important;
+}
+[id*="table-ds-lich-hen-"] thead tr th:nth-child(2){
+    width:12%!important;
+}
+[id*="table-ds-lich-hen-"] thead tr th:nth-child(3){
+    width:10%!important;
+}
+[id*="table-ds-lich-hen-"] thead tr th:nth-child(4){
+    width:10%!important;
+}
+[id*="table-ds-lich-hen-"] thead tr th:nth-child(5){
+    width:22%!important;
+}
+[id*="table-ds-lich-hen-"]  thead tr th:nth-child(6){
+    width:12%!important;
+}
+[id*="table-ds-lich-hen-"]  thead tr th:last-child{
+    width:7%!important;
+}
+#table-tracuu-phongkham{
+    width: 50%;
+    margin: auto;
+}
+#table-tracuu-phongkham th{
+    text-align: center;
+}
+#table-tracuu-phongkham thead tr th:nth-child(1){
+    width:10%!important;
+}
+#table-tracuu-phongkham thead tr th:nth-child(2){
+    width:22%!important;
+}
+#table-tracuu-phongkham thead tr th:nth-child(3){
+    width:15%!important;
+}
+#table-tracuu-phongXN{
+    width: 50%;
+    margin: auto;
+}
+#table-tracuu-phongXN th{
+    text-align: center;
+}
+#table-tracuu-phongXN thead tr th:nth-child(1){
+    width:10%!important;
+}
+#table-tracuu-phongXN thead tr th:nth-child(2){
+    width:20%!important;
+}
+#table-tracuu-phongXN thead tr th:nth-child(3){
+    width:15%!important;
+}
+.active {
+    background:#4d90f5;
+}
+#btn_My_sott{
+    width: 200px;
+    height: 50px;
+    font-size: 1.2rem;
+}
+#btn_dat_lich_XN{
+    width: 300px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin-left: 13px;
+}
+#btn_save_benh_an{
+    width: 200px;
+}
+#btn_cancel{
+    width: 200px;
+}
+#txt_gio{
+    text-align: center;
+}
+/* a[data-action=decrementMinute]{
+    background: #e41414;
+}
+a[data-action=decrementMinute]{
+    background: #e41414;
+} */
+#table_xet_nghiem thead {
+    text-align: center;
+ }
+ #table_xet_nghiem thead tr th:nth-child(1){
+     width:30%!important;
+ }
+ #table_xet_nghiem thead tr th:nth-child(2){
+     width:10%!important;
+ }
+ #table_xet_nghiem thead tr th:nth-child(3){
+     width:10%!important;
+ }
+
+ #table_xet_nghiem thead tr th:last-child{
+    width:10%!important;
+}
+#table_xet_nghiem_detail thead {
+   text-align: center;
+}
+#table_xet_nghiem_detail thead tr th:nth-child(1){
+    width:25%!important;
+}
+#table_xet_nghiem_detail thead tr th:nth-child(2){
+    width:15%!important;
+}
+#table_xet_nghiem_detail thead tr th:nth-child(3){
+    width:10%!important;
+}
+#table_xet_nghiem_detail thead tr th:nth-child(4){
+    width:10%!important;
+}
+#sel_time_XN , #lb_time_XN{
+    margin-left: 13px;
+}
