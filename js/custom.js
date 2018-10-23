@@ -27,6 +27,7 @@ $(document).ready(function() {
                 minlength: 15
             },
             txt_cmt: {
+                required:true,
                 number: true,
                 maxlength : 9,
                 minlength: 9
@@ -69,6 +70,7 @@ $(document).ready(function() {
                 maxlength:Message.MS_03,
             },
             txt_cmt: {
+                required: Message.MS_01,
                 number:  Message.MS_02,
                 minlength: Message.MS_03,
                 maxlength: Message.MS_03,
