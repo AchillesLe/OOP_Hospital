@@ -22,7 +22,7 @@
          *          a. Check hạng mục
          *              Check tồn tại BHYT or CMND?
          */
-        if($message == false){
+        if($data  == false){
             $_SESSION['message-register'] = MessageNoti::msgBHYTOrCMNDExist;
             header("Location: /dangki",301);
             exit();
