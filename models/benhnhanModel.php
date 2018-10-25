@@ -144,7 +144,7 @@ class benhnhanModel
                         WHERE  CMND = '{$this->CMND}'";
             }
             $data = mysqli_query($conn, $sql)->num_rows;
-            connection::_close();
+            connection::_close($conn);
             if ($data != 0) {
                  /**
                 * (2) Xử lý đăng kí tài khoản
