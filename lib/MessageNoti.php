@@ -10,7 +10,7 @@ class MessageNoti
     public static $msgEmailNotExist = "Địa chỉ mail chưa không có trong hệ thống , vui lòng kiểm tra lại !";
     public static $msgCMNDExist = "Số CMND  đã được đăng kí trong hệ thống , vui lòng kiểm tra lại !";
     public static $msgBHYTExist = "Số BHYT  đã được đăng kí trong hệ thống , vui lòng kiểm tra lại !";
-    public static $msgBHYTOrCMNDExist =" Số CMND hoặc BHYT đã được đăng kí trong hệ thống , vui lòng kiểm tra lại !";
+    public static $msgBHYTOrCMNDExist = " Số CMND hoặc BHYT đã được đăng kí trong hệ thống , vui lòng kiểm tra lại !";
     public static $msgUpdateFailed = "Có lỗi xuất hiện trong quá trình cập nhật thông tin , thử lại lần nữa !";
     public static $msgUpdateSuccessfully = "Cập nhật thông tin thành công  !";
     public static $msgSendMailSuccessfully = "Mail đã được gửi thành công , vui lòng kiểm tra mail !";

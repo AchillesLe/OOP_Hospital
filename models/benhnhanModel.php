@@ -87,7 +87,7 @@ class benhnhanModel
         }
     }
 
-    //Insert vào database
+    //Insert vào tblbenhnhan
     public function insert()
     {
         try {
@@ -146,12 +146,6 @@ class benhnhanModel
             $data = mysqli_query($conn, $sql)->num_rows;
             connection::_close($conn);
             if ($data != 0) {
-                 /**
-                * (2) Xử lý đăng kí tài khoản
-                *      2. Xử lý check
-                *          a. Check hạng mục
-                *              Check tồn tại BHYT or CMND?
-                */
                 return false;
             }
         }
@@ -278,12 +272,16 @@ class benhnhanModel
             return null;
         }
     }
-    public function GetALLLichKham($id_benhnhan){
+
+    // Tất cả lịch khám của bệnh nhân
+    public function GetALLLichKham($id_benhnhan)
+    {
         $conn = connection::_open();
         $sql = "SELECT A.*,  B.id as bs_id , B.ten 
                 FROM tbldatlichkham A , tblbacsi B 
-                WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' ORDER BY A.ngayHen DESC";
-        $data = mysqli_query($conn,$sql)->fetch_all(MYSQLI_ASSOC);
+                WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' 
+                ORDER BY A.ngayHen DESC";
+        $data = mysqli_query($conn, $sql)->fetch_all(MYSQLI_ASSOC);
         connection::_close($conn);
         return $data;
     }

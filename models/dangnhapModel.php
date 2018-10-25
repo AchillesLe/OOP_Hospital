@@ -8,23 +8,26 @@ class dangnhapModel
     public $quyen;
     public $tinhTrang = 0;
 
-    function __construct() {
+    function __construct()
+    {
         $argv = func_get_args();
-        switch( func_num_args() ) {
+        switch (func_num_args()) {
             case 0:
-                self::__construct1( );
+                self::__construct1();
                 break;
             case 5:
-                self::__construct2( $argv[0], $argv[1], $argv[2], $argv[3], $argv[4] );
+                self::__construct2($argv[0], $argv[1], $argv[2], $argv[3], $argv[4]);
                 break;
-         }
+        }
     }
 
-    function __construct1( ) {
-     
-    } 
+    function __construct1()
+    {
 
-    function __construct2($id, $Email, $matKhau, $quyen, $tinhTrang){
+    }
+
+    function __construct2($id, $Email, $matKhau, $quyen, $tinhTrang)
+    {
         $this->id = $id;
         $this->Email = $Email;
         $this->matKhau = $matKhau;
@@ -52,17 +55,25 @@ class dangnhapModel
             return false;
         }
     }
-    public function GetInforBenhNhan($id_benhnhan){
+
+    //Lấy thông tin Bệnh nhân
+    public function GetInforBenhNhan($id_benhnhan)
+    {
         $conn = connection::_open();
-        $sql = "SELECT * FROM tblbenhnhan A, tbldangnhap B WHERE A.idDangnhap = B.id AND A.id= '{$id_benhnhan}'";
+        $sql = "SELECT * 
+                FROM    tblbenhnhan A, 
+                        tbldangnhap B 
+                WHERE A.idDangnhap = B.id AND A.id= '{$id_benhnhan}'";
         $data = mysqli_query($conn, $sql)->fetch_array(MYSQLI_ASSOC);
         connection::_close($conn);
         return $data;
     }
+
     //Insert vào database, trả về id lúc insert
     public function InsertLastId()
     {
         $conn = connection::_open();
+        //a. Thực hiện mã hóa Base64
         $matkhau = base64_encode($this->matKhau);
         $sql = "INSERT INTO {$this->table}(Email,
                                         matKhau,
@@ -105,7 +116,7 @@ class dangnhapModel
                 WHERE Email='{$email}' AND  matKhau='{$password}'";
         $result = mysqli_query($conn, $sql)->fetch_array(MYSQLI_ASSOC);
         if (!empty($result) && isset($result['quyen'])) {
-            $result['matKhau'] = base64_decode($result['matKhau'] );
+            $result['matKhau'] = base64_decode($result['matKhau']);
             $role = $result['quyen'];
             $idDangnhap = $result['id'];
             $result1 = [];
