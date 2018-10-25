@@ -97,7 +97,7 @@ class benhnhanModel
                                             diaChi,
                                             ngaySinh,
                                             soDT,
-                                            CMND, 
+                                            CMND,
                                             danToc,
                                             ngheNghiep,
                                             BHYT,
@@ -128,35 +128,34 @@ class benhnhanModel
     //Check trước khi insert vào databse
     public function CheckBeforeInsert()
     {
-        $message = "";
         $conn = connection::_open();
-        if (!empty($bhyt) || !empty($cmt)) {
-            if (!empty($bhyt) && !empty($cmt)) {
+        if (!empty($this->BHYT) || !empty($this->CMND)) {
+            if (!empty($this->BHYT) && !empty($this->CMND)) {
                 $sql = "SELECT * 
                         FROM tblbenhnhan 
-                        WHERE CMND = '{$cmt}' OR BHYT='{$bhyt}'";
-            } else if (empty($cmt) && !empty($bhyt)) {
+                        WHERE CMND = '{$this->CMND}' OR BHYT='{$this->BHYT}'";
+            } else if (empty($this->CMND) && !empty($this->BHYT)) {
                 $sql = "SELECT * 
                         FROM tblbenhnhan 
-                        WHERE  BHYT='{$bhyt}'";
+                        WHERE  BHYT='{$this->BHYT}'";
             } else {
                 $sql = "SELECT * 
                         FROM tblbenhnhan 
-                        WHERE  CMND = '{$cmt}'";
+                        WHERE  CMND = '{$this->CMND}'";
             }
             $data = mysqli_query($conn, $sql)->num_rows;
             connection::_close();
             if ($data != 0) {
-                /**
-                 * (2) Xử lý đăng kí tài khoản
-                 *      2. Xử lý check
-                 *          a. Check hạng mục
-                 *              Check tồn tại BHYT or CMND?
-                 */
-                $message = MessageNoti::$msgBHYTOrCMNDExist;
+                 /**
+                * (2) Xử lý đăng kí tài khoản
+                *      2. Xử lý check
+                *          a. Check hạng mục
+                *              Check tồn tại BHYT or CMND?
+                */
+                return false;
             }
         }
-        return $message;
+        return true;
     }
     
     //Kiểm tra CMND có tồn tại?
@@ -279,20 +278,12 @@ class benhnhanModel
             return null;
         }
     }
-
-    //Tất cả thông tin của lịch khám
-    public function GetALLLichKham($id_benhnhan)
-    {
+    public function GetALLLichKham($id_benhnhan){
         $conn = connection::_open();
-        $sql = "SELECT  A.*, 
-                        B.id 
-                AS bs_id , 
-                        B.ten 
-                FROM    tbldatlichkham A , 
-                        tblbacsi B 
-                WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' 
-                ORDER BY A.ngayHen DESC";
-        $data = mysqli_query($conn, $sql)->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT A.*,  B.id as bs_id , B.ten 
+                FROM tbldatlichkham A , tblbacsi B 
+                WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' ORDER BY A.ngayHen DESC";
+        $data = mysqli_query($conn,$sql)->fetch_all(MYSQLI_ASSOC);
         connection::_close($conn);
         return $data;
     }
