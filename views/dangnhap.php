@@ -105,10 +105,20 @@
 					},
 					
 					messages:{
+						/**
+						 * (2) Xử lý đăng nhập
+						 *      2. Xử lý check
+						 * 			a.check hạng mục
+						 * 				3:Trường hợp chưa nhập, báo lỗi
+						 * 				4:Trường hợp nhập sai định dạng email, báo lỗi
+						 */
 						email: {
 								required: Message.MS_01,
 								email:Message.MS_29,
 							},
+						/**
+						 * 2.a.5:Trường hợp chưa nhập, báo lỗi
+						 */
 						matkhau: {
 								required:  Message.MS_01,
 								

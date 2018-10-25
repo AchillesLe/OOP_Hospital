@@ -1,3 +1,7 @@
+/**
+* (1) Hiển thị ban đầu
+*      '1. Thực hiện khởi tạo màn hình ban đầu
+*/
 <!DOCTYPE html>
 <html lang="en">
   <head>

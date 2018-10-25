@@ -6,7 +6,13 @@ var option_time = { minuteStep: 5,
     showMeridian: false  };
 
 $(document).ready(function() {
-    
+
+    /**
+     * (2) Xử lý đăng kí
+     *      2. Xử lý check
+     *          a. Check hạng mục
+     *              2.a.1-2.a.16
+     */
     $('#form-dangki').validate({
         rules: {
             txt_name: {
