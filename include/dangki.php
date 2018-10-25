@@ -15,9 +15,9 @@
         $password = $_POST['txt_password'];
         
         $bnModel = new benhnhanModel(null,$name,$sex,$address,$birthday,$sdt,$cmt,$dantoc,$job,$bhyt,1,null);
-        $message = $bnModel->CheckBeforeInsert();
-        if($message!=""){
-            $_SESSION['message-register'] = $message;
+        $data = $bnModel->CheckBeforeInsert();
+        if($message == false){
+            $_SESSION['message-register'] = MessageNoti::msgBHYTOrCMNDExist;
             header("Location: /dangki",301);
             exit();
         }
