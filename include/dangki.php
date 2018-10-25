@@ -16,6 +16,12 @@
         
         $bnModel = new benhnhanModel(null,$name,$sex,$address,$birthday,$sdt,$cmt,$dantoc,$job,$bhyt,1,null);
         $data = $bnModel->CheckBeforeInsert();
+        /**
+         * (2) Xử lý đăng kí tài khoản
+         *      2. Xử lý check
+         *          a. Check hạng mục
+         *              Check tồn tại BHYT or CMND?
+         */
         if($message == false){
             $_SESSION['message-register'] = MessageNoti::msgBHYTOrCMNDExist;
             header("Location: /dangki",301);

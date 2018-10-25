@@ -92,7 +92,17 @@ class benhnhanModel
     {
         try {
             $conn = connection::_open();
-            $sql = "INSERT INTO tblbenhnhan(ten,gioiTinh,diaChi,ngaySinh,soDT,CMND, danToc,ngheNghiep,BHYT,ngoaiTuyen,idDangnhap) 
+            $sql = "INSERT INTO tblbenhnhan(ten,
+                                            gioiTinh,
+                                            diaChi,
+                                            ngaySinh,
+                                            soDT,
+                                            CMND,
+                                            danToc,
+                                            ngheNghiep,
+                                            BHYT,
+                                            ngoaiTuyen,
+                                            idDangnhap) 
                     VALUES ('{$this->ten}',
                             '{$this->gioiTinh}',
                             '{$this->diaChi}',
@@ -136,6 +146,12 @@ class benhnhanModel
             $data = mysqli_query($conn, $sql)->num_rows;
             connection::_close();
             if ($data != 0) {
+                 /**
+                * (2) Xử lý đăng kí tài khoản
+                *      2. Xử lý check
+                *          a. Check hạng mục
+                *              Check tồn tại BHYT or CMND?
+                */
                 return false;
             }
         }
@@ -264,7 +280,9 @@ class benhnhanModel
     }
     public function GetALLLichKham($id_benhnhan){
         $conn = connection::_open();
-        $sql = "SELECT A.*, B.id as bs_id , B.ten FROM tbldatlichkham A , tblbacsi B WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' ORDER BY A.ngayHen DESC";
+        $sql = "SELECT A.*,  B.id as bs_id , B.ten 
+                FROM tbldatlichkham A , tblbacsi B 
+                WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' ORDER BY A.ngayHen DESC";
         $data = mysqli_query($conn,$sql)->fetch_all(MYSQLI_ASSOC);
         connection::_close($conn);
         return $data;
