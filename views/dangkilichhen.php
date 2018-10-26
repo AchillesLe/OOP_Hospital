@@ -83,12 +83,12 @@
         },
         messages:{
             txt_ngayhen:{
-                required:"Vui lòng nhập/chọn ngày hẹn !",
+                required: Message.MS_09
             },
             txt_reason:{
-                required:"Vui lòng nhập nguyên nhân triệu chứng !",
-                maxlength : "Nhập tối đa 300 kí tự !",
-                minlength : "Nhập tối đa 3 kí tự !",
+                required: Message.MS_10,
+                maxlength : Message.MS_31,
+                minlength : Message.MS_12,
             },
         },
         errorClass: "label-danger",
@@ -157,7 +157,7 @@
             return;
         }
         if( $('#sel_time_hen').val() == 0 ){
-            alert("Vui lòng chọn thời gian hẹn !");
+            alert(Message.MS_09);
             return;
         }
         if( $('#message-lichhen').html() == ''){

@@ -29,5 +29,6 @@ var Message ={
     MS_28 : "Thuốc đã có sẵn trong toa , vui lòng kiểm tra lại !",
     MS_29 : "Vui lòng nhập đúng dịnh dạng email ! ví dụ: abc@xyz.com !",
     MS_30 : "Nhập tối đa 200 kí tự !",
+    MS_31 : "Nhập tối đa 300 kí tự !",
     
 };
