@@ -1,10 +1,13 @@
 <?php 
-	if(isset($_SESSION['user'])){
-		$user = $_SESSION['user'];
-	}
-	else{
-    	header("Location : /dangnhap ",301);
-	}
+/**
+ * (1) Hiển thị ban đầu																				
+ *    1. Lấy thông tin đăng nhập được truyền qua $_SESSION['user'])						
+ */
+if (isset($_SESSION['user'])) {
+  $user = $_SESSION['user'];
+} else {
+  header("Location : /dangnhap ", 301);
+}
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,10 +60,10 @@
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>Xin chào
       <?php 
-				if( isset($user['quyen']) ){
-						echo ", ".$user['ten']." !";
-				}
-			?>
+      if (isset($user['quyen'])) {
+        echo ", " . $user['ten'] . " !";
+      }
+      ?>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="/inforbasic">Thông tin</a>
@@ -92,7 +95,7 @@
 					<a class="dropdown-item" href="/phong-xet-nghiem">Phòng xét nghiệm</a>
 				</div>
 			</li>
-		<?php if($user['quyen'] == 1) :?>
+		<?php if ($user['quyen'] == 1) : ?>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<i class="fas fa-fw fa-folder"></i>
@@ -108,11 +111,11 @@
 				<span>Bệnh án</span>
 			</a>
 			<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-				<a class="dropdown-item" href="/ho-so-benh-an?bn=<?php echo $user['id']?>">Hồ sơ bệnh án</a>
+				<a class="dropdown-item" href="/ho-so-benh-an?bn=<?php echo $user['id'] ?>">Hồ sơ bệnh án</a>
 			</div>
 		</li>
-		<?php endif;?>
-		<?php if($user['quyen'] == 0) :?>
+		<?php endif; ?>
+		<?php if ($user['quyen'] == 0) : ?>
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fas fa-fw fa-folder"></i>
@@ -122,5 +125,5 @@
 				<a class="dropdown-item" href="/danh-sach-benh-nhan">Danh sách</a>
 			</div>
 		</li>
-		<?php endif;?>
+		<?php endif; ?>
       </ul>

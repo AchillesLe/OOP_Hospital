@@ -10,7 +10,7 @@ var Message ={
     MS_09 : "Vui lòng nhập/chọn ngày hẹn !",
     MS_10 : "Vui lòng nhập nguyên nhân triệu chứng !",
     MS_11 : "Nhập tối đa 300 kí tự !",
-    MS_12 : "Nhập tối đa 3 kí tự !", 
+    MS_12 : "Nhập ít nhất 3 kí tự !", 
     MS_13 : "Nhập ít nhất 10 kí tự !",
     MS_14 : "Nhập tối đa 11 kí tự !",
     MS_15 : "Lịch hẹn đang bị trùng với người khác . Vui lòng chọn giờ khác !",

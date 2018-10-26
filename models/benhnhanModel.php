@@ -212,11 +212,9 @@ class benhnhanModel
         try {
             $conn = connection::_open();
             $sql = "SELECT  A.*,
-                            A.id 
-                    AS id_ba,
+                            A.id AS id_ba,
                             B.*,
-                            B.id 
-                    AS id_bn 
+                            B.id AS id_bn 
                     FROM tblbenhan A , 
                          tblbenhnhan B 
                     WHERE A.idBenhnhan = B.id 
@@ -235,13 +233,11 @@ class benhnhanModel
         try {
             $conn = connection::_open();
             $sql = "SELECT  A.*,
-                            A.id 
-                    AS id_ba,
+                            A.id AS id_ba,
                             B.*,
-                            B.id 
-                    AS id_bn 
-                    FROM tblbenhan A , 
-                    tblbenhnhan B 
+                            B.id AS id_bn 
+                    FROM    tblbenhan A , 
+                            tblbenhnhan B 
                     WHERE A.idBenhnhan = B.id 
                     AND A.idBenhnhan = '{$id_benhnhan}' ";
             $benhAn = mysqli_query($conn, $sql)->fetch_all(MYSQLI_ASSOC);
@@ -258,8 +254,7 @@ class benhnhanModel
         try {
             $conn = connection::_open();
             $sql = "SELECT  A.*,
-                            B.id 
-                    AS benh_nhan_id , 
+                            B.id AS benh_nhan_id , 
                             B.ten 
                     FROM tbldatlichkham A , 
                          tblbenhnhan B 
@@ -277,7 +272,9 @@ class benhnhanModel
     public function GetALLLichKham($id_benhnhan)
     {
         $conn = connection::_open();
-        $sql = "SELECT A.*,  B.id as bs_id , B.ten 
+        $sql = "SELECT  A.*,  
+                        B.id AS bs_id , 
+                        B.ten 
                 FROM tbldatlichkham A , tblbacsi B 
                 WHERE A.idBacsi = B.id AND A.idBenhnhan='{$id_benhnhan}' 
                 ORDER BY A.ngayHen DESC";

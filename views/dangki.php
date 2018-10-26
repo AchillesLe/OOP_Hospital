@@ -1,7 +1,4 @@
-/**
-* (1) Hiển thị ban đầu
-*      1. Thực hiện khởi tạo màn hình ban đầu
-*/
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,7 +28,11 @@
     <div class="container">
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">Đăng kí tài khoản</div>
-        <?php 
+        <?php
+        /**
+        * (1) Hiển thị ban đầu
+        *      1. Thực hiện khởi tạo màn hình ban đầu
+        */ 
         if (isset($_SESSION['message-register'])) {
             echo "<div class='alert alert-danger'>{$_SESSION['message-register']}</div>";
             unset($_SESSION['message-register']);

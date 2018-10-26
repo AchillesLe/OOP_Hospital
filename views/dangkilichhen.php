@@ -1,13 +1,19 @@
+
 <?php
-    $id = isset($_GET['bn'])?$_GET['bn']:0;
-    $benhnhanmodel = new benhnhanModel();
-    $result = $benhnhanmodel->getAllByID($id);
-    $name = "";
-    if( $result ){
-        $name = $result['ten'];
-    }else{
-        echo "<meta http-equiv='Refresh' content='0;URL=/'>";
-    }
+
+/**
+ * (1) Hiển thị ban đầu
+ *      1. Thực hiện khởi tạo màn hình ban đầu
+ */
+$id = isset($_GET['bn']) ? $_GET['bn'] : 0;
+$benhnhanmodel = new benhnhanModel();
+$result = $benhnhanmodel->getAllByID($id);
+$name = "";
+if ($result) {
+    $name = $result['ten'];
+} else {
+    echo "<meta http-equiv='Refresh' content='0;URL=/'>";
+}
 ?>
 <?php include('header.php') ?>
 <div id="content-wrapper">
@@ -151,6 +157,8 @@
             }
         });
     });
+
+
     $('.bnt-appointment-schedule-bs').on('click',function(){
         
         if( $('#form-appointment-schedule-bs').valid()==false ){
