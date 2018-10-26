@@ -28,7 +28,7 @@ if (isset($_POST['submit-form-dangki'])) {
     $bnModel = new benhnhanModel(null, $name, $sex, $address, $birthday, $sdt, $cmt, $dantoc, $job, $bhyt, 1, null);
     $data = $bnModel->CheckBeforeInsert();
     if ($data == false) {
-        $_SESSION['message-register'] = MessageNoti::$msgBHYTOrCMNDExist;
+        $_SESSION['message-register'] = MessageNoti::$MSG_07;
         header("Location: /dangki", 301);
         exit();
     }
@@ -41,7 +41,7 @@ if (isset($_POST['submit-form-dangki'])) {
      */
     $dangnhapModel = new dangnhapModel(0, $email, $password, 1, 0);
     if ($dangnhapModel->CheckEmailExist() == true) {
-        $_SESSION['message-register'] = MessageNoti::$msgEmailExist;
+        $_SESSION['message-register'] = MessageNoti::$MSG_04;
         header("Location: /dangki", 301);
         exit();
     }
@@ -55,12 +55,12 @@ if (isset($_POST['submit-form-dangki'])) {
         $bnModel->idDangnhap = $idDangnhap;
         //(2) Lưu thông tin vào tblbenhnhan
         if ($bnModel->insert() == false) {
-            $_SESSION['message-register'] = MessageNoti::$msgRegisterFailed;
+            $_SESSION['message-register'] = MessageNoti::$MSG_02;
             header("Location: /dangki", 301);
             exit();
         }
     } else {
-        $_SESSION['message-register'] = MessageNoti::$msgRegisterFailed;
+        $_SESSION['message-register'] = MessageNoti::$MSG_02;
         header("Location: /dangki", 301);
         exit();
     }
@@ -70,7 +70,7 @@ if (isset($_POST['submit-form-dangki'])) {
  * (4) Xử lý lưu thông tin thành công
  *      Hiện message thông báo đăng kí thành công
  */
-$_SESSION['message-register'] = MessageNoti::$msgRegisterSuccessfully;
+$_SESSION['message-register'] = MessageNoti::$MSG_03;
 header("Location: /", 301);
 exit();
 ?>

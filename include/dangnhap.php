@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
             fclose($handle);
         }
     } else {
-        $_SESSION['message-login'] = MessageNoti::$msgLoginFailed;
+        $_SESSION['message-login'] = MessageNoti::$MSG_01;
     }
 
     header('Location: /', 301);
