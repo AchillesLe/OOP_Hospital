@@ -76,13 +76,13 @@
 
             $result = $dangkixetnghiemModel->GetAllLichXetNghiemByIdBN($id_BN, $ngay,$id_time_XN);
             if( $result ){
-                echo json_encode(['status'=>false , 'message'=>MessageNoti::MS_16($gio,$new_ngay)]);
+                echo json_encode(['status'=>false , 'message'=>MessageNoti::ApponitmentScheduleExistGioNgay($gio,$new_ngay)]);
                 exit();
             }
             else{
                 $result = $dangkixetnghiemModel->GetInforBy($id_XN,$ngay,$id_time_XN);
                 if( $result ){
-                    echo json_encode(['status'=>false , 'message'=>MessageNoti::MSG_500($gio,$new_ngay)]);
+                    echo json_encode(['status'=>false , 'message'=>MessageNoti::MS_500($gio,$new_ngay)]);
                     exit();
                 }
                 $result = $dangkixetnghiemModel->insert();

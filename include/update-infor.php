@@ -29,7 +29,7 @@
                 $checkCMND  = $bacsiModel->CheckCMND($cmt);
             }
             if( $checkCMND == true ){
-                $_SESSION['message-update-infor'] = MessageNoti::$MSG_06;
+                $_SESSION['message-update-infor'] = MessageNoti::$msgCMNDExist;
                 $_SESSION['status'] = false;
                 echo "<meta http-equiv='Refresh' content='0;URL=/inforbasic' />";
                 exit();
@@ -42,7 +42,7 @@
                 $checkBHYT =  $bacsiModel->CheckBHYT($bhyt);
             }
             if( $checkBHYT == true ){
-                $_SESSION['message-update-infor'] = MessageNoti::$MSG_07;
+                $_SESSION['message-update-infor'] = MessageNoti::$msgBHYTExist;
                 $_SESSION['status'] = false;
                 echo "<meta http-equiv='Refresh' content='0;URL=/inforbasic' />";
                 exit();
@@ -52,7 +52,7 @@
         if( $email != $user['Email'] && $bhyt!='' ){
             $checkEmail = $dangnhapModel->CheckEmail($email);
             if(  $checkEmail == true ){
-                $_SESSION['message-update-infor'] = MessageNoti::$MSG_04;
+                $_SESSION['message-update-infor'] = MessageNoti::$msgEmailExist;
                 $_SESSION['status'] = false;
                 echo "<meta http-equiv='Refresh' content='0;URL=/inforbasic' />";
                 exit();
@@ -68,7 +68,7 @@
                 $data = $bacsiModel->update();
             }
             if(!$data){
-                $_SESSION['message-update-infor'] = MessageNoti::$MSG_08;
+                $_SESSION['message-update-infor'] = MessageNoti::$msgUpdateFailed;
                 $_SESSION['status'] = false;
                 echo "<meta http-equiv='Refresh' content='0;URL=/inforbasic' />";
                 exit();
@@ -78,7 +78,7 @@
                 $_SESSION['user'] = $data;
             }
         }
-        $_SESSION['message-update-infor'] = MessageNoti::$MSG_09;
+        $_SESSION['message-update-infor'] = MessageNoti::$msgUpdateSuccessfully;
         $_SESSION['status'] = true;
         echo "<meta http-equiv='Refresh' content='0;URL=/inforbasic' />";
         exit();

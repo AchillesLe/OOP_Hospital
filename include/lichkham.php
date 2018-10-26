@@ -37,15 +37,15 @@
                 $inforMail = array(
                     'emailTo'=>( $_SESSION['user'] )['Email'],
                     'subject'=>"Mail đăng kí lịch hẹn",
-                    'body'=> MessageNoti::MSG_14($data['ten'],$giokham,$_POST['txt_ngaykham'],$data['tenKhoa'],$stt),
+                    'body'=> MessageNoti::RegisterApponitmentScheduleSuccessfullyInMail($data['ten'],$giokham,$_POST['txt_ngaykham'],$data['tenKhoa'],$stt),
                 );
                 $mail = new Mail();
                 $result = $mail->send($inforMail);
                 if($result){
-                    $_SESSION['message-dklichkham'] = MessageNoti::$MSG_10;
+                    $_SESSION['message-dklichkham'] = MessageNoti::$msgSendMailSuccessfully;
                     $_SESSION['status'] = true;
                 }else{
-                    $_SESSION['message-dklichkham'] = MessageNoti::MSG_15($stt);
+                    $_SESSION['message-dklichkham'] = MessageNoti::RegisterApponitmentScheduleSuccessfully($stt);
                     $_SESSION['status'] = true;
                 }
             }            
@@ -78,7 +78,7 @@
 
             if($data != 0 ){
                 $result['status'] = false;
-                $result['massage'] = MessageNoti::MSG_16($time,$_POST['ngay']);
+                $result['massage'] = MessageNoti::ApponitmentScheduleExistGioNgay($time,$_POST['ngay']);
                 echo json_encode($result);
                 exit();
             }
@@ -86,7 +86,7 @@
                 $data = $lichkhamModel->CheckBacsiDuplicateLich($id_benhnhan,$id_bacsi,$ngay,$indextime);
                 if($data->num_rows != 0 ){
                     $result['status'] = false;
-                    $result['massage'] =  MessageNoti::MSG_17($time,$_POST['ngay']);
+                    $result['massage'] =  MessageNoti::SomeBodyApponitmentScheduleExistGioNgay($time,$_POST['ngay']);
                     echo json_encode($result);
                     exit();
                 } 
@@ -117,7 +117,7 @@
             $data = $lichkhamModel->CheckMultiBacsiDuplicateLich($id_benhnhan,$ngayhen,$stt);
             if($data!= 0){
                 $result['status'] = false;
-                $result['massage'] = MessageNoti::MSG_18($giokham,$ngayhen);
+                $result['massage'] = MessageNoti::PatientApponitmentScheduleExistGioNgay($giokham,$ngayhen);
                 echo json_encode($result);
                 exit();
             }
@@ -125,7 +125,7 @@
             $data = $lichkhamModel->CheckBacsiHasLichHen($id_bacsi,$ngayhen,$stt);
             if($data != 0){
                 $result['status'] = false;
-                $result['massage'] = MessageNoti::MSG_100($giokham,$ngayhen);
+                $result['massage'] = MessageNoti::MS_100($giokham,$ngayhen);
                 echo json_encode($result);
                 exit();
             }
@@ -133,7 +133,7 @@
             $data = $lichkhamModel->Check_001($id_bacsi,$id_benhnhan,$ngayhen);
             if($data != 0){
                 $result['status'] = false;
-                $result['massage'] = MessageNoti::MSG_200($ngayhen);
+                $result['massage'] = MessageNoti::MS_200($ngayhen);
                 echo json_encode($result);
                 exit();
             }
@@ -158,17 +158,17 @@
                     $inforMail = array(
                         'emailTo'=>$email,
                         'subject'=>"BỆNH VIÊN QUÂN DÂN Y MIÊN ĐÔNG",
-                        'body'=> MessageNoti::MSG_300($name_bacsi,$giohen,$ngayhen),
+                        'body'=> MessageNoti::MS_300($name_bacsi,$giohen,$ngayhen),
                     );
                     $mail = new Mail();
                     $result = $mail->send($inforMail);
-                    $_SESSION['message-dklichhen'] =  MessageNoti::$MSG_12;
+                    $_SESSION['message-dklichhen'] =  MessageNoti::$msgRegisterAppointmentScheduleSuccessfully;
                     $_SESSION['status'] = true;
                     echo "<meta http-equiv='Refresh' content='0;URL=/danh-sach-benh-nhan' />";
                 }
 
             }else{
-                $_SESSION['message-dklichhen'] = MessageNoti::$MSG_13;
+                $_SESSION['message-dklichhen'] = MessageNoti::$msgRegisterAppointmentScheduleFailed;
                 $_SESSION['status'] = false;
                 echo "<meta http-equiv='Refresh' content='0;URL=/dat-hen' />";
             }

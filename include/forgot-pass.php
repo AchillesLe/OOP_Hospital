@@ -12,23 +12,23 @@ if(isset( $_POST['txt_email'] )){
             $inforMail = array(
                 'emailTo'=>$email,
                 'subject'=>"Send mail forgot password",
-                'body'=>MessageNoti::MSG_400($pass,$url_login)
+                'body'=>MessageNoti::MS_400($pass,$url_login)
             );
             $mail = new Mail();
             $result = $mail->send($inforMail);
             if($result){
-                $_SESSION['message-forgotmail'] = MessageNoti::$MSG_10;
+                $_SESSION['message-forgotmail'] = MessageNoti::$msgSendMailSuccessfully;
                 $_SESSION['status'] = true;
                 header("Location: /forgot-password",301);
                 exit();
             }else{
-                $_SESSION['message-forgotmail'] = MessageNoti::$MSG_11;
+                $_SESSION['message-forgotmail'] = MessageNoti::$msgSendMailFailed;
                 $_SESSION['status'] = false;
                 header("Location: /forgot-password",301);
                 exit();
             }
         }else{
-            $_SESSION['message-forgotmail'] = MessageNoti::$MSG_05;
+            $_SESSION['message-forgotmail'] = MessageNoti::$msgEmailNotExist;
             $_SESSION['status'] = false;
             header("Location: /forgot-password",301);
             exit();
